@@ -74,6 +74,18 @@ variable samples-buf         \ address of final sample cell buffer
   LOOP
   2drop ;                   \ drop byte-addr and sample-addr
 
+\ Integer square root (Newton method)
+: isqrt ( ud -- u )
+    dup 0= if drop 0 exit then
+    1 swap 2/ 1+                     \ initial guess
+    begin
+        dup 2/ over + 2/
+        2dup >r >r
+        over over >
+    while
+        r> drop
+    repeat
+    r> drop ;
 \ ------------------------------------------------------------
 \  Normalised cross‑correlation for two equal‑length vectors
 \ ------------------------------------------------------------
