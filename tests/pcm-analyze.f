@@ -218,7 +218,7 @@ variable samples-buf         \ address of final sample cell buffer
 \ ------------------------------------------------------------
 : load-raw ( c-addr u -- addr n )
     r/o open-file throw               \ open for reading
-    dup file-size@                    \ total bytes in file
+    dup file-size                     \ total bytes in file
     2/ 2/ 2/                         \ convert bytes → number of 16‑bit samples
     dup cells allocate throw           \ allocate space for samples (cells = 32‑bit)
     dup >r                            \ keep address on stack
@@ -231,7 +231,7 @@ variable samples-buf         \ address of final sample cell buffer
         swap !                       \ store as 32‑bit integer
     loop
     r> swap                          \ (addr n)
-    close-file throw ;
+    r> close-file throw ;
 
 \ ------------------------------------------------------------
 \  Load reference and test buffers
