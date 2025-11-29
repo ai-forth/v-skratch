@@ -60,6 +60,48 @@ variable samples-buf         \ address of final sample cell buffer
   LOOP
   2drop ;                   \ drop byte-addr and sample-addr
 
+\ ------------------------------------------------------------
+\  Normalised cross‑correlation for two equal‑length vectors
+\ ------------------------------------------------------------
+: dot-product ( a-addr b-addr n -- d )
+    0.0e0 0 do
+        dup i cells + @               \ a[i]
+        swap i cells + @ * f+          \ accumulate a[i]*b[i]
+    loop nip nip f> ;  
+
+: vec-norm ( a-addr n -- r )
+    0.0e0 0 do
+        dup i cells + @ dup * f+      \ sum of squares
+    loop nip sqrt ;                   \ sqrt(sum(x^2))
+
+\ Normalised correlation in fixed‑point
+\ Returns an integer in range [-SCALE .. SCALE]
+: correlation-fixed ( a-addr b-addr n -- corr )
+    >r >r >r                         \ keep lengths on return stack
+    r@ r@ r@ dot64                    \ numerator (hi lo)
+    r@ sumsq64 r@ sumsq64             \ denom_a , denom_b
+    isqrt swap isqrt                  \ sqrt_a sqrt_b
+    umul64                            \ denominator (hi lo)
+
+    \ Shift numerator left by FRAC_BITS (14) to restore fraction
+    2dup 0= if drop drop 0 exit then
+    2dup 14 lshift swap 64 14 - rshift or >r   \ new_hi
+    2dup 14 lshift >r                         \ new_lo
+
+    \ 128‑by‑64 division: (new_hi new_lo) / den
+    r> r> 0
+    2 0 do
+        2over 2over 2>r >r >r
+        2over 2over 2>r >r
+        2dup 2>r >r
+        2over 2over u>= if
+            2over 2over u- swap u- swap
+            1 swap lshift or
+        then
+        2drop 2drop
+    loop
+    r> r> drop drop ;               \ final quotient (fits 64‑bits)
+
 \ --------------------------------------------------------------
 \ Core loader
 \   ( c-addr u -- sample-addr n-samples )
@@ -136,10 +178,21 @@ variable samples-buf         \ address of final sample cell buffer
 : load-test ( -- test-addr test-n )
   s" test.raw" load-pcm ;
 
-\ Example interactive usage in Gforth:
-\   load-ref   \ -> ref-addr ref-n
-\   load-test  \ -> ref-addr ref-n test-addr test-n
-\ You can then perform your matching / search using those buffers.
+\ --------------------------------------------------------------
+\ Sliding‑window detector
+\ --------------------------------------------------------------
+: detect-command ( ref-addr ref-n test-addr test-n thresh-fix -- )
+    >r >r >r                         \ keep thresh on return stack
+    test-n ref-n - 0 max 0 do        \ each possible window
+        test-addr i +                \ start of window
+        ref-addr ref-n correlation-fixed    \ correlation (fixed‑point)
+        dup r@ > if                  \ above threshold?
+            ." 👣 Detected \"come here\" at sample "
+            i ref-n + . cr
+        then
+        drop
+    loop
+    r> r> r> drop ;                  \ clean up threshold
 \ 
 \ NOTE: The caller owns the returned sample buffers.
 \ To free a loaded buffer later, do:
