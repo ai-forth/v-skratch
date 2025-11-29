@@ -75,7 +75,7 @@ variable samples-buf         \ address of final sample cell buffer
   2drop ;                   \ drop byte-addr and sample-addr
 
 \ Integer square root (Newton method)
-: isqrt ( ud -- u )
+: sqrt ( ud -- u )
     dup 0= if drop 0 exit then
     1 swap 2/ 1+                     \ initial guess
     begin
