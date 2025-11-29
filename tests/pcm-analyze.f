@@ -86,6 +86,26 @@ variable samples-buf         \ address of final sample cell buffer
         r> drop
     repeat
     r> drop ;
+\ Dot product of two integer vectors → 64‑bit result (hi lo)
+: dot64 ( a-addr b-addr n -- ud )
+    0 0 0 do
+        dup i cells + @               \ a[i]
+        swap i cells + @              \ b[i]
+        smultiply                     \ 32×32 → 64‑bit (hi lo)
+        rot rot + >r >r                \ add low parts, carry high parts
+        r> r> + >r >r
+    loop
+    r> r> ;
+
+\ Sum of squares → 64‑bit result (hi lo)
+: sumsq64 ( a-addr n -- ud )
+    0 0 0 do
+        dup i cells + @               \ x
+        dup *                         \ x*x
+        >r >r                         \ add low part, carry high part
+        r> r> + >r >r
+    loop
+    r> r> ;
 \ ------------------------------------------------------------
 \  Normalised cross‑correlation for two equal‑length vectors
 \ ------------------------------------------------------------
