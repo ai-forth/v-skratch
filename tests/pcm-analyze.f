@@ -23,7 +23,7 @@ s" test.raw"  2constant TEST-FILE    \ file you want to scan
 
 \ Fixed‑point parameters
 14 constant FRAC-BITS               \ 14 fractional bits → 2¹⁴ = 16384
-FRAC-BITS lshift constant SCALE     \ SCALE = 1 << FRAC-BITS (16384)
+1 FRAC-BITS lshift constant SCALE     \ SCALE = 1 << FRAC-BITS (16384)
 
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
 0.80e0 FRAC-BITS lshift f>s constant THRESHOLD-FIXED
