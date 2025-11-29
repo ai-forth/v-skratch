@@ -219,6 +219,9 @@ TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 : load-test ( -- test-addr test-n )
   s" test.raw" load-pcm ;
 
+: load-rawly ( -- raw-addr raw-n )
+  s" test.raw" load-pcm ;
+
 \ --------------------------------------------------------------
 \ Sliding‑window detector
 \ --------------------------------------------------------------
