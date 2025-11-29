@@ -1,7 +1,7 @@
 \ ============================================================
 \  Voice‑command detector – “come here”
 \  Pure Forth, works on a pre‑recorded raw PCM file.
-\  Tested with Gforth 0.7.3 on Linux/macOS.
+\  Tested with Gforth 0.7.3 on Linux/macOS/Windows.
 \ ============================================================
 
 \ -------------------  USER SETTINGS  -----------------------
@@ -41,43 +41,21 @@ TEST-FILE load-raw constant TEST-ADDR \ address of test samples
 TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 
 \ -------------------  FP math helpers  --------------------
-\ dot‑product of two equal‑length vectors (returns a float)
+\ dot‑product of two equal‑length integer vectors → float
 : dot-f ( a-addr b-addr n -- r )
     0.0e0 0 do
-        dup i cells + @               \ a[i] (integer)
-        swap i cells + @              \ b[i] (integer)
-        s>f swap s>f f* f+            \ convert both to float, multiply, add
+        dup i cells + @ s>f          \ a[i] → float
+        swap i cells + @ s>f          \ b[i] → float
+        f* f+                        \ accumulate a[i]*b[i]
     loop nip nip ;                    \ leave result on FP stack
 
-\ Euclidean norm of a vector (returns a float)
+\ Euclidean norm of an integer vector → float
 : norm-f ( a-addr n -- r )
     0.0e0 0 do
-        dup i cells + @               \ sample (integer)
-        s>f dup f* f+                 \ square as float and accumulate
-    loop nip sqrt ;                   \ sqrt of sum of squares
+        dup i cells + @ s>f dup f* f+   \ x² accumulated as float
+    loop nip sqrt ;                     \ sqrt of sum of squares
 
-\ Normalised cross‑correlation (returns a float in range –1..1)
+\ Normalised cross‑correlation (float in –1..1)
 : corr-f ( a-addr b-addr n -- r )
     >r >r >r                         \ keep lengths on return stack
-    r@ r@ r@ dot-f                    \ numerator = a·b (float)
-    r@ norm-f r@ norm-f f* f/          \ denominator = ||a||*||b||
-    r> r> r> 2drop ;                  \ clean return stack
-
-\ -------------------  Sliding‑window detector  --------------------
-: detect-in-test ( -- )
-    TEST-LEN REF-LEN - 0 max          \ number of possible windows
-    0 do
-        TEST-ADDR i +                 \ start of current window
-        REF-ADDR REF-LEN corr-f        \ correlation between window & reference
-        dup THRESHOLD f> if           \ above threshold ?
-            ." 👣 Detected \"come here\" at sample "
-            i REF-LEN + . cr          \ report approximate position
-        then
-        drop                         \ discard correlation value
-    loop ;
-
-\ -------------------  Run it  -------------------------------
-cr ." Loading reference (" REF-FILE ." )…" cr
-cr ." Loading test file (" TEST-FILE ." )…" cr
-detect-in-test
-cr ." Finished scanning." cr
+    r@ r@ r@ dot-f                    \
