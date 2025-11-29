@@ -14,6 +14,21 @@
 
 decimal
 
+\ -------------------  USER SETTINGS  -------------------------
+16000 constant SAMPLE-RATE          \ Hz – must match your audio files
+2      constant BYTES-PER-SAMPLE    \ 16‑bit = 2 bytes
+
+s" ref.raw"   constant REF-FILE     \ reference template (come here)
+s" test.raw"  constant TEST-FILE    \ file you want to scan
+
+\ Fixed‑point parameters
+14 constant FRAC-BITS                \ number of fractional bits
+1 FRAC-BITS lshift constant SCALE    \ 2^FRAC-BITS  (16384)
+
+\ Scaled detection threshold (0.80 → 0.80 * SCALE)
+0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
+\ --------------------------------------------------------------
+
 \ --------------------------------------------------------------
 \ Utility: error handling
 \ --------------------------------------------------------------
@@ -34,6 +49,15 @@ variable pcm-byte-buf        \ address of temporary byte buffer
 
 variable samples-count       \ number of 16-bit samples
 variable samples-buf         \ address of final sample cell buffer
+
+\ ------------------------------------------------------------
+\  Load reference and test buffers
+\ ------------------------------------------------------------
+REF-FILE load-raw constant REF-ADDR   \ address of reference samples
+REF-ADDR swap constant REF-LEN        \ number of samples in reference
+
+TEST-FILE load-raw constant TEST-ADDR \ address of test samples
+TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 
 \ --------------------------------------------------------------
 \ Convert 2 little-endian bytes to signed 16-bit in cell
@@ -59,6 +83,47 @@ variable samples-buf         \ address of final sample cell buffer
     !                       \ store
   LOOP
   2drop ;                   \ drop byte-addr and sample-addr
+
+\ ------------------------------------------------------------
+\  Normalised cross‑correlation for two equal‑length vectors
+\ ------------------------------------------------------------
+: dot-product ( a-addr b-addr n -- d )
+    0.0e0 0 do
+        dup i cells + @               \ a[i]
+        swap i cells + @ * f+          \ accumulate a[i]*b[i]
+    loop nip nip f> ;  
+
+: vec-norm ( a-addr n -- r )
+    0.0e0 0 do
+        dup i cells + @ dup * f+      \ sum of squares
+    loop nip sqrt ;                   \ sqrt(sum(x^2))
+
+\ Normalised correlation in fixed‑point
+: correlation-fixed ( a-addr b-addr n -- corr )
+    >r >r >r                         \ keep lengths on return stack
+    r@ r@ r@ dot64                    \ numerator (hi lo)
+    r@ sumsq64 r@ sumsq64             \ denom_a , denom_b
+    isqrt swap isqrt                  \ sqrt_a sqrt_b
+    umul64                            \ denominator (hi lo)
+
+    \ Shift numerator left by FRAC_BITS (14) to restore fraction
+    2dup 0= if drop drop 0 exit then
+    2dup 14 lshift swap 64 14 - rshift or >r   \ new_hi
+    2dup 14 lshift >r                         \ new_lo
+
+    \ 128‑by‑64 division: (new_hi new_lo) / den
+    r> r> 0
+    2 0 do
+        2over 2over 2>r >r >r
+        2over 2over 2>r >r
+        2dup 2>r >r
+        2over 2over u>= if
+            2over 2over u- swap u- swap
+            1 swap lshift or
+        then
+        2drop 2drop
+    loop
+    r> r> drop drop ;               \ final quotient (fits 64‑bits)
 
 \ --------------------------------------------------------------
 \ Core loader
@@ -122,7 +187,25 @@ variable samples-buf         \ address of final sample cell buffer
   source-fname-addr @ source-fname-len @ type
   cr
 ;
-
+\ ------------------------------------------------------------
+\  Utility: read a raw PCM file into a cell array
+\ ------------------------------------------------------------
+: load-raw ( c-addr u -- addr n )
+    r/o open-file throw               \ open for reading
+    dup file-size@                    \ total bytes in file
+    2/ 2/ 2/                         \ convert bytes → number of 16‑bit samples
+    dup cells allocate throw           \ allocate space for samples (cells = 32‑bit)
+    dup >r                            \ keep address on stack
+    0 do                              \ read sample by sample
+        dup i cells +                \ address of ith cell
+        2 pick read-file throw       \ read 2 bytes
+        dup 0= if leave then
+        dup c@ 256 * swap 1+ c@ +    \ combine low/high bytes (little‑endian)
+        dup 32768 -                  \ signed conversion
+        swap !                       \ store as 32‑bit integer
+    loop
+    r> swap                          \ (addr n)
+    close-file throw ;
 \ --------------------------------------------------------------
 \ Convenience wrappers for two input files
 \ --------------------------------------------------------------
@@ -136,10 +219,23 @@ variable samples-buf         \ address of final sample cell buffer
 : load-test ( -- test-addr test-n )
   s" test.raw" load-pcm ;
 
-\ Example interactive usage in Gforth:
-\   load-ref   \ -> ref-addr ref-n
-\   load-test  \ -> ref-addr ref-n test-addr test-n
-\ You can then perform your matching / search using those buffers.
+: load-rawly ( -- raw-addr raw-n )
+  s" test.raw" load-pcm ;
+
+\ --------------------------------------------------------------
+\ Sliding‑window detector
+\ --------------------------------------------------------------
+: detect-command ( -- )
+    TEST-LEN REF-LEN - 0 max          \ number of possible windows
+    0 do
+        TEST-ADDR i +                 \ start of window
+        REF-ADDR REF-LEN correlation-fixed   \ compute correlation
+        dup THRESHOLD f> if           \ above threshold?
+            ." 👣 Detected \"come here\" at sample "
+            i REF-LEN + . cr          \ report approximate position
+        then
+        drop
+    loop ;
 \ 
 \ NOTE: The caller owns the returned sample buffers.
 \ To free a loaded buffer later, do:
