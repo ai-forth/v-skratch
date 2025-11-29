@@ -14,6 +14,21 @@
 
 decimal
 
+\ -------------------  USER SETTINGS  -------------------------
+16000 constant SAMPLE-RATE          \ Hz – must match your audio files
+2      constant BYTES-PER-SAMPLE    \ 16‑bit = 2 bytes
+
+s" ref.raw"   constant REF-FILE     \ reference template (come here)
+s" test.raw"  constant TEST-FILE    \ file you want to scan
+
+\ Fixed‑point parameters
+14 constant FRAC-BITS                \ number of fractional bits
+1 FRAC-BITS lshift constant SCALE    \ 2^FRAC-BITS  (16384)
+
+\ Scaled detection threshold (0.80 → 0.80 * SCALE)
+0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
+\ --------------------------------------------------------------
+
 \ --------------------------------------------------------------
 \ Utility: error handling
 \ --------------------------------------------------------------
