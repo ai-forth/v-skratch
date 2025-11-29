@@ -44,22 +44,24 @@ TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 \ dot‑product of two equal‑length vectors (returns a float)
 : dot-f ( a-addr b-addr n -- r )
     0.0e0 0 do
-        dup i cells + @               \ a[i]
-        swap i cells + @ * f+          \ accumulate a[i]*b[i]
+        dup i cells + @               \ a[i] (integer)
+        swap i cells + @              \ b[i] (integer)
+        s>f swap s>f f* f+            \ convert both to float, multiply, add
     loop nip nip ;                    \ leave result on FP stack
 
 \ Euclidean norm of a vector (returns a float)
 : norm-f ( a-addr n -- r )
     0.0e0 0 do
-        dup i cells + @ dup * f+      \ sum of squares
-    loop nip sqrt ;                   \ sqrt(sum)
+        dup i cells + @               \ sample (integer)
+        s>f dup f* f+                 \ square as float and accumulate
+    loop nip sqrt ;                   \ sqrt of sum of squares
 
 \ Normalised cross‑correlation (returns a float in range –1..1)
 : corr-f ( a-addr b-addr n -- r )
     >r >r >r                         \ keep lengths on return stack
-    r@ r@ r@ dot-f                    \ numerator = a·b
-    r@ r@ norm-f f*                    \ denominator = ||a||*||b||
-    f/ ;                              \ final correlation
+    r@ r@ r@ dot-f                    \ numerator = a·b (float)
+    r@ norm-f r@ norm-f f* f/          \ denominator = ||a||*||b||
+    r> r> r> 2drop ;                  \ clean return stack
 
 \ -------------------  Sliding‑window detector  --------------------
 : detect-in-test ( -- )
