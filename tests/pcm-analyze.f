@@ -125,7 +125,7 @@ variable samples-buf         \ address of final sample cell buffer
     >r >r >r                         \ keep lengths on return stack
     r@ r@ r@ dot64                    \ numerator (hi lo)
     r@ sumsq64 r@ sumsq64             \ denom_a , denom_b
-    isqrt swap isqrt                  \ sqrt_a sqrt_b
+    sqrt swap sqrt                  \ sqrt_a sqrt_b
     umul64                            \ denominator (hi lo)
 
     \ Shift numerator left by FRAC_BITS (14) to restore fraction
