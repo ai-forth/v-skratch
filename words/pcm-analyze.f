@@ -211,7 +211,7 @@ TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
     TEST-LEN REF-LEN - 0 max          \ number of possible windows
     0 do
         TEST-ADDR i +                 \ start of window
-        REF-ADDR REF-LEN correlation   \ compute correlation
+        REF-ADDR REF-LEN correlation-fixed   \ compute correlation
         dup THRESHOLD f> if           \ above threshold?
             ." 👣 Detected \"come here\" at sample "
             i REF-LEN + . cr          \ report approximate position
