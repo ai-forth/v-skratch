@@ -91,7 +91,7 @@ variable samples-buf         \ address of final sample cell buffer
     0 0 0 do
         dup i cells + @               \ a[i]
         swap i cells + @              \ b[i]
-        smultiply                     \ 32×32 → 64‑bit (hi lo)
+        m*                     \ 32×32 → 64‑bit (hi lo)
         rot rot + >r >r                \ add low parts, carry high parts
         r> r> + >r >r
     loop
