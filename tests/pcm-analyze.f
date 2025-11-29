@@ -27,8 +27,15 @@ s" test.raw"  constant TEST-FILE    \ file you want to scan
 
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
 0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
-\ --------------------------------------------------------------
 
+\ ------------------------------------------------------------
+\  Load reference and test buffers
+\ ------------------------------------------------------------
+REF-FILE load-raw constant REF-ADDR   \ address of reference samples
+REF-ADDR swap constant REF-LEN        \ number of samples in reference
+
+TEST-FILE load-raw constant TEST-ADDR \ address of test samples
+TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 \ --------------------------------------------------------------
 \ Utility: error handling
 \ --------------------------------------------------------------
@@ -49,15 +56,6 @@ variable pcm-byte-buf        \ address of temporary byte buffer
 
 variable samples-count       \ number of 16-bit samples
 variable samples-buf         \ address of final sample cell buffer
-
-\ ------------------------------------------------------------
-\  Load reference and test buffers
-\ ------------------------------------------------------------
-REF-FILE load-raw constant REF-ADDR   \ address of reference samples
-REF-ADDR swap constant REF-LEN        \ number of samples in reference
-
-TEST-FILE load-raw constant TEST-ADDR \ address of test samples
-TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 
 \ --------------------------------------------------------------
 \ Convert 2 little-endian bytes to signed 16-bit in cell
