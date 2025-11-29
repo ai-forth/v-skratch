@@ -26,7 +26,7 @@ s" test.raw"  2constant TEST-FILE    \ file you want to scan
 1 FRAC-BITS lshift constant SCALE     \ SCALE = 1 << FRAC-BITS (16384)
 
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
-0.80e0 FRAC-BITS lshift f>s constant THRESHOLD-FIXED
+0.80e0 SCALE s>f f* f>s constant THRESHOLD-FIXED
 
 cr ." FRAC-BITS = " FRAC-BITS . cr
 cr ." SCALE     = " SCALE . cr
