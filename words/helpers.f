@@ -1,5 +1,5 @@
 \ --------------------------------------------------------------
-\ Fixed‑point helpers (same as in the earlier detector)
+\ Fixed‑point helpers - dot library
 \ --------------------------------------------------------------
 14 constant FRAC-BITS                \ 14 fractional bits → SCALE = 16384
 1 FRAC-BITS lshift constant SCALE
