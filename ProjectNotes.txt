@@ -1,0 +1,23 @@
+November 2025
+Building a robot friend
+
+24.11.2025
+    1415: I want to start right-away my design for a wheeled robot friend, in the pathway of Rodney but with my totall my own hardware. I think I've enough chops to design the control system.
+    1426: Drawing design file started. Let's get into this.
+    1925: Found a relay that will trigger on 1P8 and be able to control 12 volt motors.
+    1957: Started to draw the schematic.
+    2105: Going to have the relay scoped, got an order ready but will await the final parts list for a trial. What motors now: Robotis is what I have on-hand...and can use that chassis as an experimental area.
+25.11.2025
+    1326: Parts have arrived and my new robot friend project begins.
+26.11.2025
+    1126: Seem to be taking it easy today. Assembling documents from the parts reception.
+    1450: Have added information that I could find across the Internet; now contemplating control diagrams as a first step into the foray.
+    1541: Assembled the first coperation scenario.
+    1549: Authored a folder and code structure to keep us moving forward. This is the ONLY way.
+28.11.2025
+    910: Toys in the office and thinking to have a play.
+29.11.2025
+    722: The newest sacred space is established. Found some items that totally surprised me, that will help.
+    1115: Querying about a command to forth start.
+    1302: The call has been answered: Here.
+    
