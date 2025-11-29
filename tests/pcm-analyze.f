@@ -27,6 +27,8 @@ s" test.raw"  constant TEST-FILE    \ file you want to scan
 
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
 0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
+\ Unsigned 64‑bit multiply (low part only – sufficient here)
+: umul64 ( u1 u2 -- ud )  >r >r  r@ r@ *  r> r> 2drop ;
 
 \ --------------------------------------------------------------
 \ Utility: error handling
