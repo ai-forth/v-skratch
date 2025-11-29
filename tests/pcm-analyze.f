@@ -29,6 +29,8 @@ s" test.raw"  constant TEST-FILE    \ file you want to scan
 0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
 \ Unsigned 64‑bit multiply (low part only – sufficient here)
 : umul64 ( u1 u2 -- ud )  >r >r  r@ r@ *  r> r> 2drop ;
+\ Optional alias – makes the source read like the original
+: u- ( u1 u2 -- udiff ) - ;
 
 \ --------------------------------------------------------------
 \ Utility: error handling
