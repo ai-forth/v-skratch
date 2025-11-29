@@ -28,14 +28,6 @@ s" test.raw"  constant TEST-FILE    \ file you want to scan
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
 0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
 
-\ ------------------------------------------------------------
-\  Load reference and test buffers
-\ ------------------------------------------------------------
-REF-FILE load-raw constant REF-ADDR   \ address of reference samples
-REF-ADDR swap constant REF-LEN        \ number of samples in reference
-
-TEST-FILE load-raw constant TEST-ADDR \ address of test samples
-TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
 \ --------------------------------------------------------------
 \ Utility: error handling
 \ --------------------------------------------------------------
@@ -204,6 +196,16 @@ variable samples-buf         \ address of final sample cell buffer
     loop
     r> swap                          \ (addr n)
     close-file throw ;
+
+\ ------------------------------------------------------------
+\  Load reference and test buffers
+\ ------------------------------------------------------------
+REF-FILE load-raw constant REF-ADDR   \ address of reference samples
+REF-ADDR swap constant REF-LEN        \ number of samples in reference
+
+TEST-FILE load-raw constant TEST-ADDR \ address of test samples
+TEST-ADDR swap constant TEST-LEN      \ number of samples in test file
+
 \ --------------------------------------------------------------
 \ Convenience wrappers for two input files
 \ --------------------------------------------------------------
