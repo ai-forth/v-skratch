@@ -26,8 +26,7 @@ s" test.raw"  2constant TEST-FILE    \ file you want to scan
 FRAC-BITS lshift constant SCALE \ 1 << FRAC-BITS  (16384 for 14 bits)
 
 \ Scaled detection threshold (0.80 → 0.80 * SCALE)
-0.80e0 FRAC-BITS lshift f>s    \ scale the float first, then truncate
-constant THRESHOLD-FIXED
+0.80e0 FRAC-BITS lshift f>s constant THRESHOLD-FIXED
 
 \0.80e0 f>s FRAC-BITS lshift * constant THRESHOLD-FIXED
 \ Unsigned 64‑bit multiply (low part only – sufficient here)
