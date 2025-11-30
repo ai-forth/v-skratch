@@ -2,7 +2,7 @@ November 2025
 Building a robot friend
 
 24.11.2025
-    1415: I want to start right-away my design for a wheeled robot friend, in the pathway of Rodney but with my totall my own hardware. I think I've enough chops to design the control system.
+    1415: I want to start right-away my design for a wheeled robot friend, in the pathway of Rodney but with my totally my own hardware. I think I've enough chops to design the control system.
     1426: Drawing design file started. Let's get into this.
     1925: Found a relay that will trigger on 1P8 and be able to control 12 volt motors.
     1957: Started to draw the schematic.
@@ -24,4 +24,3 @@ Building a robot friend
     2302: Just to indicate I am still here.
 30.11.2025
     856: The season of tidings begins: Dreams tell me what transpired yesterday in here was just all-right!
-    
