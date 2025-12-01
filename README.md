@@ -6,18 +6,18 @@ A playground for the poor and ignominious.
 
 The 'tests' folder is the working-area for code development while using Gforth; polyForth is still an open-question. They are organized according to the 'cooperation scenarios' document:
 
-* A-01 - First task
+* `A-01` - First task
     - Await/analyze command phrase
-* B-01 - Second task
+* `B-01` - Second task
     - Move toward voice/sound
     - Detected spatially in the last task
-* C-01 - Third task
+* `C-01` - Third task
     - Execute animation
     - One of seven possibilities
     - Two are implemented
         - 'come here'
         - 'dance'
-* D-01 - Fourth task
+* `D-01` - Fourth task
     - Await vocal indicative feedback
     - Detected audially post-third task (animation)
     - Staring-point for Ideal
