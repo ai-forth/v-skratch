@@ -31,7 +31,9 @@ _Example_
 
 ### Tasks
 
-_01: Decomposing a `wav` file_
+Record what should be for the machine in Audacity. Export to `*.wav` file, naming by functional placement.
+
+_A-01: Decomposing a `wav` file_
 
 ```
 ffmpeg -i ref.wav -f s16le -ac 1 -ar 16000 ref.raw
