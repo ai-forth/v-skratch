@@ -1,5 +1,5 @@
 \ -------------------------------------------------
-\ Example: a simple switch‑case that prints a word
+\ A simple switch‑case that prints a word
 \ -------------------------------------------------
 
 : say-hello   ." Hello!" cr ;
