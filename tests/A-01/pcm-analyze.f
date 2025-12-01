@@ -1,5 +1,5 @@
 \ ==============================================================
-\  PCM16 Mono Loader-PreAnalyzer (for ref.raw and test.raw)
+\  PCM16 Command-Word Analyzer (for ref.raw and test.raw)
 \  --------------------------------------------------------------
 \  Loads a raw 16-bit little-endian mono PCM file into memory.
 \  Leaves on stack:  ( sample-addr n-samples )
