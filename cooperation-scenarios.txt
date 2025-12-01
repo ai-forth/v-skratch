@@ -21,9 +21,11 @@ It's important to choose animations that engage within anthropomorphic emotional
 
 A.---
 Await command phrase
+CODEFILE: pcm-analyze.f
 
 B.---
 Move toward voice (sound)
+CODEFILE: move-toward.f
 
 C.---
 Execute animation
@@ -34,8 +36,10 @@ Execute animation
 - [5]
 - [6]
 - [7]
+CODEFILE: execute-animation.feedback.f
 
 D.---
 Await vocal indicative feedback (from last executed animation)
+CODEFILE: await-vocal-feedback.f
 
 -----
