@@ -30,4 +30,5 @@ Building a robot friend
     1026: Petster distractions all-around.
     1045: Given this: Created a logical organization of the feature-set.
     1100: A better organizational principle has been applied.
+    1108: Looking at everything: Seems area 'C' is where I should begin implementation.
     
