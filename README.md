@@ -1,6 +1,6 @@
 ## v-skratch
 
-A playground for the poor and ignominious.
+A dedicated volatco playground.
 
 ### Sections
 
