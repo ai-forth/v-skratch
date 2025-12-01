@@ -14,7 +14,7 @@ The 'tests' folder is the working-area for code development while using Gforth; 
 * `C-01` - Third task
     - Execute animation
     - One of seven possibilities
-    - Two are implemented
+    - Three are implemented
         - 'come here'
         - 'dance'
 * `D-01` - Fourth task

@@ -31,7 +31,7 @@ C.---
 Execute animation
 - [1] Spin clockwise/counterclockwise based on mood
 - [2] Dance (need motor routine)
-- [3]
+- [3] Acknowledge (sound emanation)
 - [4]
 - [5]
 - [6]
