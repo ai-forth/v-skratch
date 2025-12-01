@@ -2,6 +2,12 @@
 
 A dedicated volatco playground.
 
+### Patterns
+
+* Mood (Happy, Neutral, Sad)
+* Emit (sound)
+* Moves
+
 ### Sections
 
 The 'tests' folder is the working-area for code development while using Gforth; polyForth is still an open-question. They are organized according to the 'cooperation scenarios' document:
