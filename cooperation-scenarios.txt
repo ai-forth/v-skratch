@@ -29,8 +29,8 @@ CODEFILE: move-toward.f
 
 C.---
 Execute animation
-- [1]
-- [2]
+- [1] Spin clockwise/counterclockwise based on mood
+- [2] Dance (need motor routine)
 - [3]
 - [4]
 - [5]
