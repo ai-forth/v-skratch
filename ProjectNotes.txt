@@ -32,4 +32,5 @@ Building a robot friend
     1100: A better organizational principle has been applied.
     1108: Looking at everything: Seems area 'C' is where I should begin implementation.
     1648: Worked stopped and went for a sandwich, never got back to it until now.
+    1729: Pseudocodes and switch-case in the vault.
     
