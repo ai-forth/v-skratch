@@ -35,4 +35,5 @@ Building a robot friend
     1729: Pseudocodes and switch-case in the vault.
     1814: Yep: I think that's it!
     1823: Not really. More pseudocode.
+    1940: Done for the day.
     
