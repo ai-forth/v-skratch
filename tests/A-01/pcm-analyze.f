@@ -8,7 +8,7 @@
 \  Requires:
 \    open-file  file-size  read-file  close-file
 \    allocate   free
-\    c@  !  type  throw  etc.
+\    c@  !  type  throw  
 \  Tested with Gforth (uses file-size, not file-size@).
 \ ==============================================================
 
