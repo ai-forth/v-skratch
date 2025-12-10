@@ -32,7 +32,7 @@ s" test.raw"  2constant TEST-FILE    \ file you want to scan
 
 cr ." FRAC-BITS = " FRAC-BITS . cr
 cr ." SCALE     = " SCALE . cr
-cr ." THRESHOLD-FIXED (fixed‑point) = " THRESHOLD-FIXED . cr
+cr ." THRESHOLD-FIXED (fixed-point) = " THRESHOLD-FIXED . cr
 
 \ Unsigned 64‑bit multiply (low part only – sufficient here)
 : umul64 ( u1 u2 -- ud )  >r >r  r@ r@ *  r> r> 2drop ;
