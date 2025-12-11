@@ -36,4 +36,5 @@ Building a robot friend
     1814: Yep: I think that's it!
     1823: Not really. More pseudocode.
     1940: Done for the day.
-    
+11.12.2025
+    1212: Cleanly set volatco, volatco-shop, and this as a sequence of increasing coolness.
