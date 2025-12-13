@@ -4,16 +4,16 @@ A dedicated volatco playground.
 
 ### Characteristics
 
-We decided that version VOL00-0000a of this board would have two GA144 chips and essentially be a cost- and size-reduced version of the EVB002 board, capable of running polyFORTH®. In addition to the two GA144s, 2 MB SRAM and 16 MB SPI flash, the board has a reset/watchdog circuit and minimal jumpers for selecting development or operational modes, for measuring power consumption, and for resetting the board. Power comes from off-board; there are no onboard regulators. All I/O, including that necessary for commissioning the board and developing software, is off-board and reached via 2.54mm headers.
+Version VOL00-0001a of this board has two GA144 multicomputer chips, 2 MB SRAM, 16 MB SPI flash, 2 MB NOR flash capable of running polyFORTH®; a reset/watchdog circuit, and settings-jumpers for selecting development or operational modes, for measuring power consumption, and for resetting the board. Power, in the form of 1.80 VDC is applied via two sets of pins off-board and there are no onboard regulators.
 
-The only I/O pins that are not brought to these headers are the 36 lines of parallel "bus" connections on chip 1 - `target`. 
+All I/O, including that necessary for commissioning the board and developing software, is off-board and reached via 2.54mm headers.
 
-It's deemed that the 25 GPIO, 10 analog in and 10 analog out pins should suffice for this application without having to contend with the bus pins' characteristics. And, if absolutely necessary, several of the pins on chip 0 might also be available. Other than the above functionality, there were two design constraints:
+`chip 1` - `target` - has 25 `GPIO`, 10 analog in `Ain`, and 10 analog out `Aout` pins available to polyForth applications, without having to contend with the bus pins' characteristics. If absolutely necessary: Several of the pins on `chip 0` could be made available. The design of the board is founded upon two primary design constraints:
 
 1. Minimize energy consumption.
 2. Minimize PCB size.
 
-More details will be published as they are made publically-available.
+More details will be published as they are made available.
 
 ### Patterns
 
