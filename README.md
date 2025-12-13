@@ -41,6 +41,8 @@ The 'tests' folder is the working-area for code development while using Gforth; 
     - Detected audially post-third task (animation)
     - Staring-point for Ideal
         - Was the feedback positive or negative?
+* `E-01` - Errata tasks
+    - Transliteration - eliza --> aeon
 
 _Example_
 
