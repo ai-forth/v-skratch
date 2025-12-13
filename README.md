@@ -23,7 +23,7 @@ More details will be published as they are made available.
     - Connect the source of the MOSFET to ground
     - Use the 3.3V side for the gate
     - Connect the drain to the 1.8V logic side
-    - Add pull-up resistors (10k-47k) to ensure clean signal transitions
+    - Add pull-up resistors (10kΩ-47kΩ) to ensure clean signal transitions
 
 _Voltage Translation Mechanics_
 
