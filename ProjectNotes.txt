@@ -41,4 +41,7 @@ Building a robot friend
     1228: Test check-in from IDE environment.
 12.12.2025
     1251: Chassis is assembled. Took about an hour. Will need to build-up via i-beam slider, like some previous project, I'm sure...
+13.12.2025
+    1055: Went to aiventure-computer and pulled the specs. Published them on the main readme. Summary: 25 GPIO, 10 Ain, 10 Aout.
+    1105: Updated further and summarized in brief the specifications of Volatco Model-A.
     
