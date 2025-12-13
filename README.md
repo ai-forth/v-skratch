@@ -2,6 +2,45 @@
 
 A dedicated volatco playground.
 
+### Characteristics
+
+Version VOL00-0001a of this board has two GA144 multicomputer chips, 2 MB SRAM, 16 MB SPI flash, 2 MB NOR flash capable of running polyFORTH®; a reset/watchdog circuit, and settings-jumpers for selecting development or operational modes, for measuring power consumption, and for resetting the board. Power, in the form of 1.80 VDC is applied via two sets of pins off-board and there are no onboard regulators.
+
+All I/O, including that necessary for commissioning the board and developing software, is off-board and reached via 2.54mm headers.
+
+`chip 1` - `target` - has 25 `GPIO`, 10 analog in `Ain`, and 10 analog out `Aout` pins available to polyForth applications, without having to contend with the bus pins' characteristics. If absolutely necessary: Several of the pins on `chip 0` could be made available. The design of the board is founded upon two primary design constraints:
+
+1. Minimize energy consumption.
+2. Minimize PCB size.
+
+More details will be published as they are made available.
+
+### Circuital Concerns
+
+* Level Shifter Using MOSFETs
+    - 2N7000
+* Implementation Steps
+    - Connect the source of the MOSFET to ground
+    - Use the 3.3V side for the gate
+    - Connect the drain to the 1.8V logic side
+    - Add pull-up resistors (10kΩ-47kΩ) to ensure clean signal transitions
+
+_Voltage Translation Mechanics_
+
+Signal Path when 3.3V logic is LOW (0V)
+
+* Gate voltage is below threshold
+* Drain-source channel remains high impedance
+* 1.8V side maintains its original logic state
+* No current flows through the MOSFET
+
+Signal Path When When 3.3V logic is HIGH (3.3V)
+
+* Gate voltage exceeds threshold (typically 2V)
+* MOSFET channel becomes conductive
+* Drain is pulled close to ground potential
+* 1.8V side logic state changes accordingly
+
 ### Patterns
 
 * Mood (Happy, Neutral, Sad)
@@ -28,6 +67,8 @@ The 'tests' folder is the working-area for code development while using Gforth; 
     - Detected audially post-third task (animation)
     - Staring-point for Ideal
         - Was the feedback positive or negative?
+* `E-01` - Errata tasks
+    - Transliteration - eliza --> aeon
 
 _Example_
 

@@ -1,10 +1,10 @@
 \ --------------------------------------------------------------
-\ Fixed‑point helpers - dot library
+\ Fixed point helpers - dot library
 \ --------------------------------------------------------------
 14 constant FRAC-BITS                \ 14 fractional bits → SCALE = 16384
 1 FRAC-BITS lshift constant SCALE
 
-\ Unsigned 64‑bit multiply (low part only – sufficient here)
+\ Unsigned 64bit multiply (low part only – sufficient here)
 : umul64 ( u1 u2 -- ud )  >r >r  r@ r@ *  r> r> 2drop ;
 
 \ Integer square root (Newton method)
@@ -70,7 +70,7 @@
     r> r> drop drop ;               \ final quotient (fits 64‑bits)
 
 \ --------------------------------------------------------------
-\ Sliding‑window detector
+\ Sliding window detector
 \ --------------------------------------------------------------
 : detect-command ( ref-addr ref-n test-addr test-n thresh-fix -- )
     >r >r >r                         \ keep thresh on return stack
