@@ -15,6 +15,16 @@ All I/O, including that necessary for commissioning the board and developing sof
 
 More details will be published as they are made available.
 
+### Circuital Concerns
+
+* Level Shifter Using MOSFETs
+    - 2N7000
+* Implementation Steps
+    - Connect the source of the MOSFET to ground
+    - Use the 3.3V side for the gate
+    - Connect the drain to the 1.8V logic side
+    - Add pull-up resistors to ensure clean signal transitions
+
 ### Patterns
 
 * Mood (Happy, Neutral, Sad)
