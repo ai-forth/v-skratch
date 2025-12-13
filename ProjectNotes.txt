@@ -45,4 +45,5 @@ Building a robot friend
     1055: Went to aiventure-computer and pulled the specs. Published them on the main readme. Summary: 25 GPIO, 10 Ain, 10 Aout.
     1105: Updated further and summarized in brief the specifications of Volatco Model-A.
     1735: Established all parts required for the chassis platforms and the lean into the paper for phototaxis, sound reaction, and cooperation.
+    1905: Remembering the work for david-joi; this should be used with Volatco. Added dynamixel data.
     
