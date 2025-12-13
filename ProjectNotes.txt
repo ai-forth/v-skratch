@@ -44,4 +44,5 @@ Building a robot friend
 13.12.2025
     1055: Went to aiventure-computer and pulled the specs. Published them on the main readme. Summary: 25 GPIO, 10 Ain, 10 Aout.
     1105: Updated further and summarized in brief the specifications of Volatco Model-A.
+    1735: Established all parts required for the chassis platforms and the lean into the paper for phototaxis, sound reaction, and cooperation.
     
