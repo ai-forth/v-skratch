@@ -23,7 +23,23 @@ More details will be published as they are made available.
     - Connect the source of the MOSFET to ground
     - Use the 3.3V side for the gate
     - Connect the drain to the 1.8V logic side
-    - Add pull-up resistors to ensure clean signal transitions
+    - Add pull-up resistors (10k-47k) to ensure clean signal transitions
+
+_Voltage Translation Mechanics_
+
+Signal Path when 3.3V logic is LOW (0V)
+
+* Gate voltage is below threshold
+* Drain-source channel remains high impedance
+* 1.8V side maintains its original logic state
+* No current flows through the MOSFET
+
+Signal Path When When 3.3V logic is HIGH (3.3V)
+
+* Gate voltage exceeds threshold (typically 2V)
+* MOSFET channel becomes conductive
+* Drain is pulled close to ground potential
+* 1.8V side logic state changes accordingly
 
 ### Patterns
 
