@@ -50,4 +50,5 @@ Building a robot friend
     1932: Designed the basic draft of the motor control circuitry.
 18.12.2025
     1339: Have the robot chassis alternative parts all ready for exploration. Here I go! :-)
+    1406: Settled on a first-draft motor control circuit.
     
