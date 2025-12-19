@@ -52,4 +52,5 @@ Building a robot friend
     1339: Have the robot chassis alternative parts all ready for exploration. Here I go! :-)
     1406: Settled on a first-draft motor control circuit.
     1806: Started assembling one robot chassis; with the encoder addition, need to print motor mounts with a longer neck.
+    1904: Length is a bit far so introducing a spacer.
     
