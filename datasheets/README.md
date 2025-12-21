@@ -1,4 +1,19 @@
-# Using G3VM-61BR2 for High Current Motors
+## DF Robot motors for the robot
+
+Both platforms use the DFRobot [FIT0450](https://wiki.dfrobot.com/Micro_DC_Motor_with_Encoder-SJ01_SKU__FIT0450) motor with encoder.
+
+![pinout](/datasheets/motor-encoder/FIT0450.png)
+
+| Grade | Name                     | Functional Description                                                       |
+|-------|--------------------------|------------------------------------------------------------------------------|
+| 1     | Motor power supply pin + | 3-7.5V，Rated voltage6V                                                      |
+| 2     | Motor power supply pin - |                                                                              |
+| 3     | Encoder A phase output   | Changes square wave with the output frequency of Motor speed                 |
+| 4     | Encoder B phase output   | Changes square wave with the output frequency of Motor speed(interrupt port) |
+| 5     | Encoder supply GND       |                                                                              |
+| 6     | Encoder supply +         | 4.5-7.5V                                                                     |
+
+## Using G3VM-61BR2 for High Current Motors
 
    1.8V Source
        |
