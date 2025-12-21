@@ -14,7 +14,7 @@ Both platforms use the DFRobot [FIT0450](https://wiki.dfrobot.com/Micro_DC_Motor
 | 6     | Encoder supply +         | 4.5-7.5V                                                                     |
 
 ## Using G3VM-61BR2 for High Current Motors
-
+```
    1.8V Source
        |
        R1 (68 Ω)
@@ -35,7 +35,7 @@ Both platforms use the DFRobot [FIT0450](https://wiki.dfrobot.com/Micro_DC_Motor
      +-------+----+
      |  Flyback Diode|
      +----------------+
-
+```
 
 ## Current Draw Above 50mA
 
