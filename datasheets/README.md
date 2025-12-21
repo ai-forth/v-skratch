@@ -74,7 +74,7 @@ _Physical specs_
 | IO-connector(s)                             | JST-PH (compatible) male |                                                                              |
 | Motor connector(s)                          | JST-PH (compatible) male |                                                                              |
 
-## Using G3VM-61BR2 for High Current Motors
+## Using G3VM-61BR2 for Driverless Motor Control
 ```
    1.8V Source
        |
