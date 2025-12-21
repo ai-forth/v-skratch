@@ -54,5 +54,7 @@ Building a robot friend
     1806: Started assembling one robot chassis; with the encoder addition, need to print motor mounts with a longer neck.
     1904: Length is a bit far so introducing a spacer.
     1906: Stopping the machines for the night. Will focus on getting the parts printed this evening.
+21.12.2025
+    1223: Gathering the motor data so I can start to design the control system, after building the second unit.
     
     
