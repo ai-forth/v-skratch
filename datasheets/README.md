@@ -101,8 +101,3 @@ In both cases, the schematic will look similar to the earlier designs but with a
 
 - If your motor's current draw exceeds **50 mA**, using an external transistor or relay allows you to control larger loads safely.
 - Always include protection diodes for inductive loads to safeguard your components.
-
-If you want to know more about either method or need specific parts suggestions, feel free to ask!
-```
-
-You can copy and paste this into a Markdown file on GitHub or any other Markdown editor!
