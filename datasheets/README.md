@@ -4,7 +4,7 @@ Both platforms use the DFRobot [FIT0450](https://wiki.dfrobot.com/Micro_DC_Motor
 
 ![pinout](/datasheets/motor-encoder/FIT0450.png)
 
-| Grade | Name                     | Functional Description                                                       |
+| Pin   | Name                     | Functional Description                                                       |
 |-------|--------------------------|------------------------------------------------------------------------------|
 | 1     | Motor power supply pin + | 3-7.5V，Rated voltage6V                                                      |
 | 2     | Motor power supply pin - |                                                                              |
