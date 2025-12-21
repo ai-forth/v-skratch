@@ -33,7 +33,7 @@ _Physical specs_
 
 | General                                     |                          | Functional Description                                                       |
 |---------------------------------------------|--------------------------|------------------------------------------------------------------------------|
-| Brand                                       | DFRobot                  | 3-7.5V，Rated voltage6V                                                      |
+| Brand                                       | DFRobot                  | 3-7.5V，Rated voltage 6V                                                      |
 | Manufacturer model/SKU                      | FIT0450                  |                                                                              |
 | Minimum operating temperature [°C]          | -10                      | Changes square wave with the output frequency of Motor speed                 |
 | Maximum operating temperature [°C]          | 60                       | Changes square wave with the output frequency of Motor speed(interrupt port) |
