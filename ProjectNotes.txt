@@ -56,5 +56,6 @@ Building a robot friend
     1906: Stopping the machines for the night. Will focus on getting the parts printed this evening.
 21.12.2025
     1223: Gathering the motor data so I can start to design the control system, after building the second unit.
-    
-    
+23.12.2025
+    1229: Gathered the peripherals data for the robots.
+        
