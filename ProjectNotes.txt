@@ -63,4 +63,5 @@ Building a robot friend
     1631: Making and printing models for the set of sensor backplanes.
     1714: Flat versions for the native robot.
     1804: Two pieces left to print.
+    1923: Ultrasonic not fit to purpose for this installation. Made a change.
     
