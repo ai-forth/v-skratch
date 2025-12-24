@@ -17,8 +17,10 @@ More details will be published as they are made available.
 
 ### Circuital Concerns
 
-* Level Shifter Using MOSFETs
-    - 2N7000
+* A minimalist-dependency [level-shifter](/circuits/level-shift/README.md)
+    - 3V3 to 1V8
+    - [1] 2N2222
+    - [4] 3.6kΩ voltage divider
 * Implementation Steps
     - Connect the source of the MOSFET to ground
     - Use the 3.3V side for the gate
