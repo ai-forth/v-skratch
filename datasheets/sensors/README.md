@@ -2,7 +2,7 @@
 
 The Forth-X Robot will possess the following sensors for its operational paradigm:
 
-* [GRL-12503](https://botland.store/content/158-Photoresistor-and-Arduino) Digital light sensor with regulation via photoresisotr and potentiometer
+* [GRL-12503](https://botland.store/content/158-Photoresistor-and-Arduino) Digital light sensor with regulation via photoresistor and potentiometer
 * [MOD-06638](https://botland.store/microphones-and-sound-detection/6638-sound-sensor-digital-5v-5904422359829.html) Sound sensor and folllower
 * [MOD-01420](https://botland.store/ultrasonic-distance-sensors/1420-ultrasonic-distance-sensor-hc-sr04-2-200cm-justpi-5903351241366.html) Ultrasonic distance sensor
 
