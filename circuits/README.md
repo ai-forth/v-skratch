@@ -14,4 +14,4 @@ A typical model is a wheeled robot. How should a Volatco control two motors for 
 
 ![circuit](/circuits/level-shift/circuit.jpg)
 
-![board](/circuits/level-shift/circuit.jpg)
+![board](/circuits/level-shift/board.jpg)
