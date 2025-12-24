@@ -5,3 +5,24 @@
 ![circuit](/circuits/level-shift/circuit.jpg)
 
 ![board](/circuits/level-shift/board.jpg)
+
+### 3V3 to 1V8
+
+* Parts
+    - [1] 2N2222
+    - [4] 3.6kΩ voltage divider
+* Implementation
+    - Connect the source of the MOSFET to ground
+    - Use the 3.3V side for the gate
+    - Connect the drain to the 1.8V logic side
+    - Add pull-up resistors (10kΩ-47kΩ) to ensure clean signal transitions
+
+### 5V0 to 1V8
+
+Some advice [here](https://electronics.stackexchange.com/questions/677958/level-shifting-to-lower-voltage-logic-gate-vs-voltage-divider)
+
+![image](/circuits/level-shift/5v-1v8.jpg)
+
+* Parts
+    - [1] 74LVC244A
+    - [4] ?
