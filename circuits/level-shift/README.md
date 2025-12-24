@@ -19,7 +19,7 @@
 
 ### 5V0 to 1V8
 
-Some advice [here](https://electronics.stackexchange.com/questions/677958/level-shifting-to-lower-voltage-logic-gate-vs-voltage-divider)
+Some advice [here](https://electronics.stackexchange.com/questions/677958/level-shifting-to-lower-voltage-logic-gate-vs-voltage-divider) and [theory](https://analogcircuitdesign.com/level-shifter-circuit/#level-shifter-50v-to-33v).
 
 ![image](/circuits/level-shift/5v-1v8.jpg)
 
