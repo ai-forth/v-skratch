@@ -61,4 +61,5 @@ Building a robot friend
 24.12.2025
     1310: Peripherals sorted, how to mount appropriately (twice) is the challenge.
     1631: Making and printing models for the set of sensor backplanes.
+    1714: Flat versions for the native robot.
     
