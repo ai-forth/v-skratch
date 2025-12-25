@@ -1,3 +1,15 @@
+## v
+
+A voltage divider is a simple electronic circuit that reduces a higher voltage to a lower voltage. It typically consists of two resistors connected in series. The output voltage is taken from the junction between the two resistors.
+
+* Resistors (R1 and R2): The two resistors are connected in series. The input voltage (Vin) is applied across the series combination, and the output voltage (Vout) is measured across R2.
+
+The output voltage can be calculated using the formula:
+
+$$ V_{out} = V_{in} \cdot \frac{R_2}{R_1 + R_2} $$
+
+This equation shows that the output voltage is a fraction of the input voltage, determined by the ratio of the resistors.
+
 ## Level shifter
 
 * Starting from [here](https://www.instructables.com/Single-Transistor-Voltage-Level-Shifter/)
