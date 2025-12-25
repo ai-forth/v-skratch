@@ -16,6 +16,8 @@ Everyone is totally off their nut...
 
 Logic levels to be read by leveraging the Digilent Analog Discovery 2.
 
+Saving time to use a TI TXS018e (wrapped in a breakout board) for the purpose.
+
 ### Tasking
 
 The oscilloscope is extra powered by the battery. The devices will consume power from the Begin by charting the actual levels of the devices on-hand:
