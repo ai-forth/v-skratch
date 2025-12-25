@@ -6,6 +6,14 @@
 
 ![board](/circuits/level-shift/board.jpg)
 
+### Tasking
+
+Begin by charting the actual levels of the devices on-hand:
+
+* Sound sensor - 
+* Light sensor - 
+* Ultra sensor - 
+
 ### 3V3 to 1V8
 
 * Parts
