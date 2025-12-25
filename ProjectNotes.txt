@@ -67,4 +67,5 @@ Building a robot friend
 25.12.2025
     1535: Setting into motion tasking.
     1552: Starting with the sound sensor.
+    1610: Established the levels and will only pursue the sound and light sensor implementation, this round.
     
