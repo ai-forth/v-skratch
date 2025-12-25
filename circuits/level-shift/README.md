@@ -6,6 +6,8 @@
 
 ![board](/circuits/level-shift/board.jpg)
 
+Logic levels to be read by leveraging the Digilent Analog Discovery 2.
+
 ### Tasking
 
 Begin by charting the actual levels of the devices on-hand:
