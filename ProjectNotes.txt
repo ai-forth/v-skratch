@@ -66,4 +66,5 @@ Building a robot friend
     1923: Ultrasonic not fit to purpose for this installation. Made a change.
 25.12.2025
     1535: Setting into motion tasking.
+    1552: Starting with the sound sensor.
     
