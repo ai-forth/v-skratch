@@ -12,11 +12,7 @@ This equation shows that the output voltage is a fraction of the input voltage, 
 
 ## Level shifter
 
-* Starting from [here](https://www.instructables.com/Single-Transistor-Voltage-Level-Shifter/)
-
-![circuit](/circuits/level-shift/circuit.jpg)
-
-![board](/circuits/level-shift/board.jpg)
+Everyone is totally off their nut...
 
 Logic levels to be read by leveraging the Digilent Analog Discovery 2.
 
