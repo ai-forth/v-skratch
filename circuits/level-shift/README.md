@@ -10,7 +10,7 @@ Logic levels to be read by leveraging the Digilent Analog Discovery 2.
 
 ### Tasking
 
-Begin by charting the actual levels of the devices on-hand:
+The oscilloscope is extra powered by the battery. The devices will consume power from the Begin by charting the actual levels of the devices on-hand:
 
 * Sound sensor - 
 * Light sensor - 
