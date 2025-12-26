@@ -1,4 +1,4 @@
-#!  bin/bash
+#!  /bin/bash
 #
 cc -m32 -c vec.c -o vec.o
 cc -m32 -Wl,-melf_i386,-otalker,-dn,-M talker.s vec.o > junk/lked
