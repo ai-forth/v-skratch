@@ -69,4 +69,6 @@ Building a robot friend
     1552: Starting with the sound sensor.
     1610: Established the levels and will only pursue the sound and light sensor implementation, this round.
     2005: A more complicated topic but with a simple solution, at the speeds of lame, but good enough at this 'level'.
+26.12.2025
+    2014: Shadowing a colleague so that one can build in C.
     
