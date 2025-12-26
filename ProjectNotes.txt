@@ -71,4 +71,5 @@ Building a robot friend
     2005: A more complicated topic but with a simple solution, at the speeds of lame, but good enough at this 'level'.
 26.12.2025
     2014: Shadowing a colleague so that one can build in C.
+    2215: Forth and some more.
     
