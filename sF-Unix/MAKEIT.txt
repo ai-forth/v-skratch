@@ -1,0 +1,10 @@
+#  Shell script to make the talker program.
+#
+cc -c vec.c
+cc -Wl,-m,-otalker,-dn,-Mmap talker.s vec.o > junk/lked
+cc -c talker.s
+pr -f -o4 vec.c > listing
+pr -f -o4 talker.s >> listing
+# dis -L -s talker.o | pr -f -o4 >> listing
+pr -f -o4 junk/lked >> listing
+# lp listing
