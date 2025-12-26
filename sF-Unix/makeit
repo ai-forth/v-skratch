@@ -1,5 +1,5 @@
 #!  bin/bash
-#
+
 cc -c vec.c
 cc -Wl,-m,-otalker,-dn,-Mmap talker.s vec.o > junk/lked
 cc -c talker.s
