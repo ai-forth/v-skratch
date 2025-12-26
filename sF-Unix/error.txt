@@ -1,0 +1,4 @@
+/usr/bin/ld: cannot find -lgcc_s: No such file or directory
+/usr/bin/ld: errno: TLS definition in /usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib32/libc.a(errno.o) section .tbss mismatches non-TLS reference in /tmp/ccO8MQGB.o
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib32/libc.a: error adding symbols: bad value
+collect2: error: ld returned 1 exit status
