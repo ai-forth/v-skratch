@@ -1,10 +1,11 @@
 #!  /bin/bash
 #
 cc -m32 -c vec.c -o vec.o
-cc -m32 -Wl,-melf_i386,-otalker,-dn,-M talker.s vec.o > junk/lked
+cc -m32 -Wl,-melf_i386,-otalker,-dn,-M talker.s -static vec.o > junk/lked
 cc -m32 -c talker.s
 pr -f -o4 vec.c > listing
 pr -f -o4 talker.s >> listing
 # dis -L -s talker.o | pr -f -o4 >> listing
 pr -f -o4 junk/lked >> listing
 # lp listing
+
